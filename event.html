@@ -23,12 +23,34 @@
 </head>
 <body>
     <div class="contents" align="center" hidden>
-        <button id="incrementButton">Tekan aku!</button>
+        <button id="incrementButton">Click me!</button>
         <h3>Kamu sudah menekan tombol diatas sebanyak : <span id="count">0</span></h3>
     </div>
 
     <script>
         //Kode JavaScript
+        function welcome() {
+            alert("Tadddaaaaa... HTML elements here");
+            const contents = document.querySelector('.contents');
+            contents.removeAttribute('hidden');
+        }
+
+        document.body.onload = welcome;
+
+        function increment() {
+            document.getElementById('count').innerText++;
+
+            if (document.getElementById('count').innerText == 7) {
+                const hiddenMessage = document.createElement('h4');
+                hiddenMessage.innerText = "Congraturations You found a hidden gift...";
+                const image = document.createElement('img');
+                image.setAttribute('src', 'https://i.ibb.co/0V49VRZ/catto.jpg');
+                const contents = document.querySelector('.contents');
+                contents.appendChild(hiddenMessage).appendChild(image);
+            }
+        }
+
+        document.getElementById('incrementButton').onclick = increment;
     </script>
 </body>
 </html>
