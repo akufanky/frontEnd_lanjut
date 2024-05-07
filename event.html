@@ -29,17 +29,10 @@
 
     <script>
         //Kode JavaScript
-        function welcome() {
-            alert("Tadddaaaaa... HTML elements here");
-            const contents = document.querySelector('.contents');
-            contents.removeAttribute('hidden');
-        }
-
-        document.body.onload = welcome;
-
+        
         function increment() {
             document.getElementById('count').innerText++;
-
+            
             if (document.getElementById('count').innerText == 7) {
                 const hiddenMessage = document.createElement('h4');
                 hiddenMessage.innerText = "Congraturations You found a hidden gift...";
@@ -49,8 +42,19 @@
                 contents.appendChild(hiddenMessage).appendChild(image);
             }
         }
+        
+        function welcome() {
+            alert("Tadddaaaaa... HTML elements here");
+            const contents = document.querySelector('.contents');
+            contents.removeAttribute('hidden');
+        }
 
-        document.getElementById('incrementButton').onclick = increment;
+        // document.getElementById('incrementButton').onclick = increment;
+        // document.body.onload = welcome;
+
+        // addEventListener
+        window.addEventListener('load', welcome);
+        document.getElementById('incrementButton').addEventListener('click', increment);
     </script>
 </body>
 </html>
